@@ -82,7 +82,8 @@
   .wrap{
     max-width:1120px;
     margin:0 auto;
-    padding:0 clamp(20px,5vw,56px);
+    padding-left:clamp(20px,5vw,56px);
+    padding-right:clamp(20px,5vw,56px);
   }
 
   /* ---------- paper grain overlay ---------- */
@@ -137,10 +138,14 @@
     padding-top: calc(90px + env(safe-area-inset-top,0px));
     padding-bottom:60px;
   }
+  .hero-top-row{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+    margin-bottom:22px;
+  }
   .hero-kicker{
     display:flex; align-items:center; gap:10px;
     font-family:var(--mono); font-size:.72rem; color:var(--brass);
-    letter-spacing:.06em; margin-bottom:22px;
+    letter-spacing:.06em;
   }
   .hero-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); }
   h1.hero-name{
@@ -185,8 +190,8 @@
   @keyframes cueDrop{ 0%{top:-100%;} 60%{top:100%;} 100%{top:100%;} }
 
   .stamp{
-    position:absolute; top:calc(96px + env(safe-area-inset-top,0px)); right:clamp(20px,5vw,56px);
-    width:118px; height:118px;
+    width:118px; height:118px; flex-shrink:0;
+    position:relative;
     display:flex; align-items:center; justify-content:center;
     text-align:center; font-family:var(--mono); font-size:.58rem; letter-spacing:.04em; color:var(--brass);
   }
@@ -257,7 +262,7 @@
     padding-bottom:14px; border-bottom:1px solid var(--rule);
   }
   .ledger-track{ position:relative; padding-left:0; }
-  .ledger-line-svg{ position:absolute; left:63px; top:0; bottom:0; width:4px; }
+  .ledger-line-svg{ position:absolute; left:138px; top:0; bottom:0; width:4px; }
   .ledger-line-bg, .ledger-line-fg{ fill:none; stroke-width:2; }
   .ledger-line-bg{ stroke:var(--rule); }
   .ledger-line-fg{ stroke:var(--brass); }
@@ -270,7 +275,7 @@
   .entry:last-child{ border-bottom:none; }
   .entry-date{ font-family:var(--mono); font-size:.78rem; color:var(--ink-soft); padding-top:3px; }
   .entry-node{
-    position:absolute; left:57px; top:40px; width:16px; height:16px; border-radius:50%;
+    position:absolute; left:132px; top:40px; width:16px; height:16px; border-radius:50%;
     background:var(--paper); border:2px solid var(--rule); z-index:2;
   }
   .entry.is-active .entry-node{ border-color:var(--brass); background:var(--brass); }
@@ -346,14 +351,15 @@
     font-family:var(--serif); font-weight:500; font-size:clamp(2rem,5vw,3.4rem); line-height:1.1;
     max-width:16ch; margin:0 0 44px;
   }
-  .contact-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px 40px; }
-  @media (max-width:700px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px 40px; margin-bottom:70px; }
+  @media (max-width:700px){ .contact-grid{ grid-template-columns:1fr; margin-bottom:52px; } }
   .contact-item{ border-top:1px solid rgba(239,234,216,.22); padding-top:16px; }
   .contact-item .k{ font-family:var(--mono); font-size:.68rem; color:#B7B097; letter-spacing:.04em; margin-bottom:6px; }
   .contact-item a, .contact-item span.v{ font-size:1.08rem; text-decoration:none; color:#EFEAD8; }
   .contact-item a:hover{ color:var(--brass-light); }
-  footer{ padding:30px clamp(20px,5vw,56px); font-family:var(--mono); font-size:.7rem; color:#8F8A76;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; background:var(--navy-2); }
+  footer{ padding:26px clamp(20px,5vw,56px); font-family:var(--mono); font-size:.7rem; color:#8F8A76;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    background:var(--navy-2); border-top:1px solid rgba(239,234,216,.14); }
 
   ::selection{ background:var(--brass); color:#fff; }
   a:focus-visible, button:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; border-radius:2px; }
@@ -380,7 +386,13 @@
 
   <!-- HERO -->
   <section class="hero wrap">
-    <div class="hero-kicker"><span class="dot"></span> DOHA, QATAR — AVAILABLE FOR OPPORTUNITIES</div>
+    <div class="hero-top-row">
+      <div class="hero-kicker"><span class="dot"></span> DOHA, QATAR — AVAILABLE FOR OPPORTUNITIES</div>
+      <div class="stamp">
+        <div class="stamp-ring"></div>
+        <div class="stamp-inner">CAREER<br>SINCE<br>2016</div>
+      </div>
+    </div>
     <h1 class="hero-name">Nazmul Hossain<br>Sujan</h1>
     <div class="hero-role-row">Currently: <span id="typewriter"></span></div>
 
@@ -392,11 +404,6 @@
       <div><strong>Based in</strong>222 Al Istiqlal Road, Doha, Qatar</div>
       <div><strong>Organisation</strong>Qatar Sports Club</div>
       <div><strong>Languages</strong>Bangla · English · Arabic · Urdu · Hindi</div>
-    </div>
-
-    <div class="stamp">
-      <div class="stamp-ring"></div>
-      <div class="stamp-inner">CAREER<br>SINCE<br>2016</div>
     </div>
 
     <div class="scroll-cue"><div class="line"></div> SCROLL</div>
