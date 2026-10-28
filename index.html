@@ -180,7 +180,7 @@
   .scroll-cue{
     position:absolute; bottom:26px; left:clamp(20px,5vw,56px);
     display:flex; align-items:center; gap:10px; font-size:.72rem; color:var(--ink-soft);
-    font-family:var(--mono);
+    font-family:var(--mono); text-decoration:none;
   }
   .scroll-cue .line{ width:1px; height:34px; background:var(--ink-soft); position:relative; overflow:hidden; }
   .scroll-cue .line::after{
@@ -406,7 +406,7 @@
       <div><strong>Languages</strong>Bangla · English · Arabic · Urdu · Hindi</div>
     </div>
 
-    <div class="scroll-cue"><div class="line"></div> SCROLL</div>
+    <a class="scroll-cue" href="#about" aria-label="Scroll to the about section"><span class="line" aria-hidden="true"></span><span aria-hidden="true">SCROLL</span></a>
   </section>
 
   <!-- STATS -->
