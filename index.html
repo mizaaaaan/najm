@@ -394,7 +394,7 @@
       </div>
     </div>
     <h1 class="hero-name">Nazmul Hossain<br>Sujan</h1>
-    <div class="hero-role-row">Currently: <span id="typewriter"></span></div>
+    <div class="hero-role-row">Currently: <span id="typewriter">Administration</span></div>
 
     <svg class="hero-line-svg" viewBox="0 0 560 34" preserveAspectRatio="none">
       <path id="heroPath" d="M2,28 C 100,28 120,4 200,10 S 320,30 400,14 S 500,2 558,16" />
@@ -412,10 +412,10 @@
   <!-- STATS -->
   <section class="stats-band">
     <div class="wrap stats-grid">
-      <div class="stat"><div class="num" data-target="8" data-suffix="+">0</div><div class="label">YEARS AT QATAR SPORTS CLUB</div></div>
-      <div class="stat"><div class="num" data-target="5">0</div><div class="label">LANGUAGES SPOKEN</div></div>
-      <div class="stat"><div class="num" data-target="4">0</div><div class="label">ROLES HELD SINCE 2016</div></div>
-      <div class="stat"><div class="num" data-target="2016">0</div><div class="label">CAREER START YEAR</div></div>
+      <div class="stat"><div class="num" data-target="8" data-suffix="+">8+</div><div class="label">YEARS AT QATAR SPORTS CLUB</div></div>
+      <div class="stat"><div class="num" data-target="5">5</div><div class="label">LANGUAGES SPOKEN</div></div>
+      <div class="stat"><div class="num" data-target="4">4</div><div class="label">ROLES HELD SINCE 2016</div></div>
+      <div class="stat"><div class="num" data-target="2016">2016</div><div class="label">CAREER START YEAR</div></div>
     </div>
   </section>
 
@@ -622,6 +622,7 @@ if (twEl) {
     twEl.textContent = roles[0];
   } else {
     var rIdx = 0, cIdx = 0, deleting = false;
+    twEl.textContent = '';
     (function typeLoop(){
       var word = roles[rIdx];
       if(!deleting){
@@ -664,6 +665,9 @@ if (window.gsap && window.ScrollTrigger) {
     gsap.set('.lang-chip', {opacity:1, scale:1});
     showFinalStatesNoMotion();
   } else {
+
+    /* Restore animated starting values; HTML keeps complete values without JS. */
+    statEls.forEach(function(numEl){ numEl.textContent = '0'; });
 
     /* ---------- hero ink line draw ---------- */
     if(heroPath){
